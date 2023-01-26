@@ -15,5 +15,13 @@ module PokeCalculator
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.generators do |g| #ここから追記
+      g.helper false #helperを生成しない
+      g.assets false #CSS,JavaScriptファイルを生成しない
+      g.skip_routes true #routes.rbを変更しない
+      g.test_framework false #テストファイルを生成しない
+    end
+
   end
 end
