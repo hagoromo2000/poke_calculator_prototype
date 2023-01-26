@@ -1,2 +1,21 @@
-<h1>Pokemons#new</h1>
-<p>Find me in app/views/pokemons/new.html.erb</p>
+<h1>Pokemon</h1>
+<%= render "shared/search", { path: new_pokemon_path } %>
+<div>
+  <% if @response.present? %>
+    <table>
+      <tr>
+        <td>No.</td>
+        <td><%= @response["id"] %></td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td><%= @response["name"] %></td>
+      </tr>
+    </table>
+    <% if @response["sprites"]["front_default"] %>
+      <%= image_tag(@response["sprites"]["front_default"], size: "200") %>
+    <% end %>
+  <% else %>
+    <p>検索してください</p>
+  <% end %>
+</div>
