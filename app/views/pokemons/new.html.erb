@@ -16,8 +16,11 @@
         <td><%= @name_response["names"][0]["name"] %></td>
       </tr>
       <tr>
-        <td>Type:</td>
+        <td>Type1</td>
         <td><%= @response["types"][0]["type"]["name"] %></td>
+      </tr>
+      <tr>
+        <td>Type2</td>
         <% if @response["types"][1] %>
           <td><%= @response["types"][1]["type"]["name"] %></td>
         <% end %>
