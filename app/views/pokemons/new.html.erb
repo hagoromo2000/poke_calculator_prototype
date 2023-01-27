@@ -1,0 +1,67 @@
+<h1>Pokemon</h1>
+<%= render "shared/search", { path: new_pokemon_path } %>
+<div>
+  <% if @response.present? %>
+    <table>
+      <tr>
+        <td>No.</td>
+        <td><%= @response["id"] %></td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td><%= @response["name"] %></td>
+      </tr>
+      <tr>
+        <td>名前:</td>
+        <td><%= @name_response["names"][0]["name"] %></td>
+      </tr>
+      <tr>
+        <td>Type:</td>
+        <td><%= @response["types"][0]["type"]["name"] %></td>
+        <% if @response["types"][1] %>
+          <td><%= @response["types"][1]["type"]["name"] %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td>ability</td>
+        <td><%= @response["abilities"][0]["ability"]["name"]%></td>
+        <% if @response["abilities"][1] %>
+          <td><%= @response["abilities"][1]["ability"]["name"]%></td>
+        <% end %>
+        <% if @response["abilities"][2] %>
+          <td><%= @response["abilities"][2]["ability"]["name"]%></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td>status:H</td>
+        <td><%= @response["stats"][0]["base_stat"]%></td>
+      </tr>
+      <tr>
+        <td>status:A</td>
+        <td><%= @response["stats"][1]["base_stat"]%></td>
+      </tr>
+      <tr>
+        <td>status:B</td>
+        <td><%= @response["stats"][2]["base_stat"]%></td>
+      </tr>
+      <tr>
+        <td>status:C</td>
+        <td><%= @response["stats"][3]["base_stat"]%></td>
+      </tr>
+      <tr>
+        <td>status:D</td>
+        <td><%= @response["stats"][4]["base_stat"]%></td>
+      </tr>
+      <tr>
+        <td>status:S</td>
+        <td><%= @response["stats"][5]["base_stat"]%></td>
+      </tr>
+
+    </table>
+    <% if @response["sprites"]["front_default"] %>
+      <%= image_tag(@response["sprites"]["front_default"], size: "200") %>
+    <% end %>
+  <% else %>
+    <p>検索してください</p>
+  <% end %>
+</div>
