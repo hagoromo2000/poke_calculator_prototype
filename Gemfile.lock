@@ -224,6 +224,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.6.0)
       mini_portile2 (~> 2.8.0)
+    sqlite3 (1.6.0-x86_64-linux)
     strscan (3.0.5)
     thor (1.2.1)
     thread_safe (0.3.6)
@@ -250,6 +251,7 @@ GEM
 PLATFORMS
   -darwin-22
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   better_errors
