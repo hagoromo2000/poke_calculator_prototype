@@ -49,7 +49,13 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
+    better_errors (2.9.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.8.1)
+    binding_of_caller (1.0.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     bootstrap (4.3.1)
@@ -79,6 +85,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
+    debug_inspector (1.1.0)
     digest (3.1.1)
     erubi (1.12.0)
     execjs (2.8.1)
@@ -245,6 +252,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   byebug
