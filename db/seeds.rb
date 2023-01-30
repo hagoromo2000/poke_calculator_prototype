@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
 
 1.upto(1008) do |i| # ポケモンの初期データ作成
   file = File.open("json/pokemon_json_data/pokemon#{i}.json", "r") # ポケモンの基本情報を取得
@@ -47,8 +48,17 @@
     special_defense: special_defense,
     speed: speed
   )
-
 end
+
+# Itemのデータをcsvから取得
+CSV.foreach('db/item.csv', headers: true) do |row|
+  Item.create!(
+    name: row['Name']
+  )
+end
+
+
+
 
 # タイプ名の日本語化処理
 Pokemon.where(type1: "normal").update_all(type1: "ノーマル")
