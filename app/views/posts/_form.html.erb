@@ -1,0 +1,77 @@
+<%= form_with model: post , local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="form_group">
+    <%= f.label :"タイトル" %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :"ポケモン" %>
+    <%= f.text_field :pokemon, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :"とくせい" %>
+    <%= f.text_field :ability, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :"道具" %>
+    <%= f.text_field :item, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :ev_hp %>
+    <%= f.number_field :ev_hp, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :ev_attack %>
+    <%= f.number_field :ev_attack, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :ev_defense %>
+    <%= f.number_field :ev_defense, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :ev_special_attack %>
+    <%= f.number_field :ev_special_attack, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :ev_special_defense %>
+    <%= f.number_field :ev_special_defense, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :ev_speed %>
+    <%= f.number_field :ev_speed, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :iv_hp %>
+    <%= f.number_field :iv_hp, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :iv_attack %>
+    <%= f.number_field :iv_attack, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :iv_defense %>
+    <%= f.number_field :iv_defense, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :iv_special_attack %>
+    <%= f.number_field :iv_special_attack, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :iv_special_defense %>
+    <%= f.number_field :iv_special_defense, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :iv_speed %>
+    <%= f.number_field :iv_speed, class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :"テラスタイプ" %>
+    <%= f.select :tera_type, [["ノーマル", "ノーマル"],["ほのお","ほのお"],["みず","みず"]], include_blank:'選択してください', class: 'form-control' %>
+  </div>
+  <div class="form_group">
+    <%= f.label :"概要" %>
+    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+  </div>
+
+  <%= f.submit '投稿',class: 'btn btn-primary' ,data: { disable_with: (t '.commit')} %>
+<% end %>
