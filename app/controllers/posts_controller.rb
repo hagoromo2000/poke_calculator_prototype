@@ -15,6 +15,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+
+    if @post.save
+      redirect_to posts_path, success: "育成論を作成しました"
+    else
+      flash.now['danger'] = "作成に失敗しました"
+      render :new
+    end
   end
 
   def update
@@ -32,7 +39,7 @@ class PostsController < ApplicationController
                                 :ev_attack,
                                 :ev_defense,
                                 :ev_special_attack,
-                                :ev_special_defense
+                                :ev_special_defense,
                                 :ev_speed,
                                 :iv_hp,
                                 :iv_attack,
