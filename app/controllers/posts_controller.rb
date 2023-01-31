@@ -14,8 +14,14 @@ class PostsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @post = Post.new(post_params)
+    # binding.pry
+    @post.pokemon_id = Pokemon.find_by(name: params[:post][:pokemon]).id
+    @post.ability_id = Ability.find_by(name: params[:post][:ability]).id
+    @post.item_id = Item.find_by(name: params[:post][:item]).id
 
+    binding.pry
     if @post.save
       redirect_to posts_path, success: "育成論を作成しました"
     else
@@ -47,7 +53,7 @@ class PostsController < ApplicationController
                                 :iv_special_attack,
                                 :iv_special_defense,
                                 :iv_speed,
-                                :tera_type
+                                :tera_type,
                               )
   end
 end
