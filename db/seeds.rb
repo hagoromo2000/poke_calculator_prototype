@@ -50,15 +50,47 @@ require "csv"
   )
 end
 
+# わざのデータをJSONから取得
+1.upto(900) do |i| 
+  file = File.open("json/move_json_data/move#{i}.json", "r")
+  json_data = file.read
+  file.close
+  data = JSON.parse(json_data)
+
+  name = data["names"][0]["name"]
+  type = data["type"]["name"]
+  power = data["power"]
+  damage_class = data["damage_class"]["name"]
+
+  Move.create!(
+    name: name,
+    type: type,
+    power: power,
+    damage_class: damage_class
+  )
+end
+
+# とくせいのデータをJSONから取得
+1.upto(298) do |i| 
+  file = File.open("json/ability_json_data/ability#{i}.json", "r")
+  json_data = file.read
+  file.close
+  data = JSON.parse(json_data)
+
+  name = data["names"][0]["name"]
+
+  Move.create!(
+    name: name,
+  )
+end
+
+
 # Itemのデータをcsvから取得
 CSV.foreach('db/item.csv', headers: true) do |row|
   Item.create!(
     name: row['Name']
   )
 end
-
-
-
 
 # タイプ名の日本語化処理
 Pokemon.where(type1: "normal").update_all(type1: "ノーマル")
@@ -98,4 +130,21 @@ Pokemon.where(type2: "dark").update_all(type2: "あく")
 Pokemon.where(type1: "fairy").update_all(type1: "フェアリー")
 Pokemon.where(type2: "fairy").update_all(type2: "フェアリー")
 
-
+Move.where(type: "normal").update_all(type: "ノーマル")
+Move.where(type: "fighting").update_all(type: "かくとう")
+Move.where(type: "flying").update_all(type: "ひこう")
+Move.where(type: "poison").update_all(type: "どく")
+Move.where(type: "ground").update_all(type: "じめん")
+Move.where(type: "rock").update_all(type: "いわ")
+Move.where(type: "bug").update_all(type: "むし")
+Move.where(type: "ghost").update_all(type: "ゴースト")
+Move.where(type: "steel").update_all(type: "はがね")
+Move.where(type: "fire").update_all(type: "ほのお")
+Move.where(type: "water").update_all(type: "みず")
+Move.where(type: "grass").update_all(type: "くさ")
+Move.where(type: "electric").update_all(type: "でんき")
+Move.where(type: "psychic").update_all(type: "エスパー")
+Move.where(type: "ice").update_all(type: "こおり")
+Move.where(type: "dragon").update_all(type: "ドラゴン")
+Move.where(type: "dark").update_all(type: "あく")
+Move.where(type: "fairy").update_all(type: "フェアリー")
