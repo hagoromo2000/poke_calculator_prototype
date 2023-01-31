@@ -79,8 +79,8 @@ end
 
   name = data["names"][0]["name"]
 
-  Move.create!(
-    name: name,
+  Ability.create!(
+    name: name
   )
 end
 
@@ -150,7 +150,5 @@ Move.where(type: "dark").update_all(type: "あく")
 Move.where(type: "fairy").update_all(type: "フェアリー")
 
 Move.where(damage_class: "physical").update_all(damage_class: "ぶつり")
-Move.where(damage_class: "special").update_all(damage_class: "とくしゅ"
+Move.where(damage_class: "special").update_all(damage_class: "とくしゅ")
 Move.where(damage_class: "status").update_all(damage_class: "へんか")
-
-
